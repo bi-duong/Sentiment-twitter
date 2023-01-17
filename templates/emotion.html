@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="card-body">
+    <form name="myForm" action="{{ url_for('emotionanalysis')}}" onsubmit="return validateForm()" method="post" class="for">
+    <div class="head">
+   <br>
+        <center><p><strong>Enter the texts you want to search sentiment for here.....</strong></p></center>
+        <br>
+       <center><label><strong>Enter the text</strong></label></center>
+      <center><input class="form-file-input form-control" type="text" name="emo_text" id="text" onfocus="this.value=''" onblur="setbg('white')"   placeholder="Enter texts here" spellcheck="true" required="required" width="200px"></center>
+      <br>
+      <center><button id="button" onclick="submit" type="submit" class="input-group-text btn btn-primary btn-sm">Check Sentiment!</button></center>
+      <br>
+    </div></form>
+
+    <br>
+    <br><br><br>
+     <div class="card-title" style="text-align: center;font-size:50px">{{prediction}}</div>
+    <br>
+    <br><br><br><br>
+</div>
+
+
+<script>
+function validateForm() {
+  let x = document.forms["myForm"]["fname"].value;
+  if (x == "") {
+  alert("Name must be filled out");
+  return false;
+  }
+}
+</script>
+ {% endblock %}
